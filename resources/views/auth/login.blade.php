@@ -18,11 +18,21 @@
                 <input type="email" id="email" name="email" value="{{ old('email') }}"
                     placeholder="Enter your email"
                     class="mt-1 block w-full bg-gray-200 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-300 p-2">
+                <div>
+                    @error('email')
+                        <div class="rounded-md bg-red-50 p-3 text-sm font-medium text-red-800">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
             <div class="mb-4">
                 <label for="password" class="block text-gray-700 font-medium ">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter password"
                     class="mt-1 block w-full bg-gray-200 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-300 p-2">
+                <div>
+                    @error('password')
+                        <div class="rounded-md bg-red-50 p-3 text-sm font-medium text-red-800">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
             <div class="flex justify-between items-center">
                 <div class="text-sm">
