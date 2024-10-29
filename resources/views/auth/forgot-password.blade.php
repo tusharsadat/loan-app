@@ -14,11 +14,22 @@
         <p class="text-gray-700 mb-4">Please enter your email address to receive a password reset link.</p>
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
+
+            @if (session('status'))
+                <div class="rounded-md bg-green-50 p-3 text-sm font-medium text-green-800">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="mb-4">
                 <label for="email" class="block text-gray-700 font-medium">Email</label>
                 <input type="email" id="email" name="email" value="{{ old('email') }}"
                     placeholder="Enter your email"
                     class="p-2 mt-1 block w-full bg-gray-200 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-300">
+                <div>
+                    @error('email')
+                        <div class="rounded-md bg-red-50 p-3 text-sm font-medium text-red-800">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
             <button type="submit"
                 class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 focus:ring-opacity-50">Send
