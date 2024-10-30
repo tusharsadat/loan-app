@@ -27,7 +27,7 @@ class PasswordResetLinkController extends Controller
     public function store(Request $request): RedirectResponse
     {
         // Log the incoming request data to see what is being submitted
-        Log::info($request->all());
+        //Log::info($request->all());
 
         $request->validate([
             'email' => 'required|email|exists:users,email',
