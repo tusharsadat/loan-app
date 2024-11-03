@@ -18,7 +18,8 @@
             </div>
             <ul id="profileDropdown" class="hidden mt-2 py-2 w-32 bg-white border rounded-lg shadow-lg absolute right-0"
                 x-cloak>
-                <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">My Profile</a></li>
+                <li><a href="{{ route('admin.profile') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">My
+                        Profile</a></li>
                 <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Settings</a></li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

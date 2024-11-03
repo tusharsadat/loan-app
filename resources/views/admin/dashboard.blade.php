@@ -46,6 +46,25 @@
             }
         });
     </script>
+    <script>
+        function previewImage(event) {
+            const imagePreview = document.getElementById('image_preview');
+            const profilePreview = document.getElementById('profile_Preview');
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    profilePreview.src = e.target.result;
+                    imagePreview.classList.remove('hidden');
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 
 </body>
 
