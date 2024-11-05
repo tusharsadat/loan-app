@@ -48,7 +48,7 @@ class AdminController extends Controller
 
         // Save the updated admin data
         $admin->save();
-
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        toastr()->success('Profile updated successfully!');
+        return redirect()->back();
     }
 }
