@@ -73,7 +73,7 @@
                                 <td class="py-2 px-4">
 
                                     <label class="switch">
-                                        <input type="checkbox">
+                                        <input type="checkbox" {{ $user->role == 'admin' ? 'checked' : '' }}>
                                         <span class="slider"></span>
                                     </label>
 
