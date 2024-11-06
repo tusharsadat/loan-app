@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\admin\UsersController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +35,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::put('/admin/profile/update', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
+
+    Route::get('admin/all-user', [UsersController::class, 'allUser'])->name('admin.allUser');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

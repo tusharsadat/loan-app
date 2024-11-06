@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="flex flex-col bg-gray-100">
+    <div class="flex flex-col h-screen bg-gray-100">
 
         @include('admin.sections.header')
 
