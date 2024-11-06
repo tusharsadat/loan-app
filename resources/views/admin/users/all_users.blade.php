@@ -64,28 +64,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="py-2 px-4">1</td>
-                            <td class="py-2 px-4">John Doe</td>
-                            <td class="py-2 px-4">john@example.com</td>
-                            <td class="py-2 px-4">User</td>
-                            <td class="py-2 px-4">
+                        @foreach ($users as $key => $user)
+                            <tr>
+                                <td class="py-2 px-4">{{ $key + 1 }}</td>
+                                <td class="py-2 px-4">{{ $user->name }}</td>
+                                <td class="py-2 px-4">{{ $user->email }}</td>
+                                <td class="py-2 px-4">{{ $user->role }}</td>
+                                <td class="py-2 px-4">
 
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                </label>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
 
-                            </td>
-                            <td class="py-2 px-4">
-                                <button
-                                    class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 transition duration-200">View
-                                    Details</button>
-                                <button
-                                    class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-200 ml-2">Delete</button>
+                                </td>
+                                <td class="py-2 px-4">
+                                    <button
+                                        class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 transition duration-200">View
+                                        Details</button>
+                                    <button
+                                        class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-200 ml-2">Delete</button>
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
                         <!-- Add more rows as needed -->
                     </tbody>
                 </table>
