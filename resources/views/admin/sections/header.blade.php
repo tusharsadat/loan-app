@@ -20,7 +20,8 @@
                 x-cloak>
                 <li><a href="{{ route('admin.profile') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">My
                         Profile</a></li>
-                <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Settings</a></li>
+                <li><a href="{{ route('profile.edit') }}"
+                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Settings</a></li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
