@@ -61,6 +61,7 @@
                             <th class="py-2 px-4">User Type</th>
                             <th class="py-2 px-4">Make Admin</th>
                             <th class="py-2 px-4">Action</th>
+                            <th class="py-2 px-4">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,9 +82,18 @@
                                 <td class="py-2 px-4">
                                     <button
                                         class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 transition duration-200">View
-                                        Details</button>
-                                    <button
-                                        class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-200 ml-2">Delete</button>
+                                        Details
+                                    </button>
+
+                                </td>
+                                <td class="py-2 px-4">
+                                    <form action="{{ route('delete.user', $user->id) }}" method="POST"
+                                        onsubmit="return confirm('Are you sure you want to delete this job?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-200 ml-2">Delete</button>
+                                    </form>
 
                                 </td>
                             </tr>
