@@ -80,10 +80,10 @@
 
                                 </td>
                                 <td class="py-2 px-4">
-                                    <button
-                                        class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 transition duration-200">View
+                                    <a href="{{ route('user.detail', $user->id) }}"
+                                        class="bg-blue-500 text-white py-1.5 px-3 rounded-md hover:bg-blue-600 transition duration-200">View
                                         Details
-                                    </button>
+                                    </a>
 
                                 </td>
                                 <td class="py-2 px-4">

@@ -33,4 +33,11 @@ class UsersController extends Controller
         toastr()->success('User delete successfully!');
         return redirect()->back();
     }
+
+    public function userDetail($id)
+    {
+        // Find the job by its ID
+        $user = User::findOrFail($id);
+        return view('admin.users.user_details', compact('user'));
+    }
 }
