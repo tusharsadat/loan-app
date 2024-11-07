@@ -30,6 +30,7 @@ class UsersController extends Controller
         $user->delete();
 
         // Redirect back with a success message
-        return redirect()->route('all.user');
+        toastr()->success('User delete successfully!');
+        return redirect()->back();
     }
 }

@@ -87,12 +87,13 @@
 
                                 </td>
                                 <td class="py-2 px-4">
-                                    <form action="{{ route('delete.user', $user->id) }}" method="POST"
-                                        onsubmit="return confirm('Are you sure you want to delete this job?');">
+                                    <button type="submit" onclick="confirmDelete({{ $user->id }})"
+                                        class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-200 ml-2">Delete</button>
+                                    <form id="deleteForm-{{ $user->id }}" action="{{ route('delete.user', $user->id) }}"
+                                        method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"
-                                            class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-200 ml-2">Delete</button>
+
                                     </form>
 
                                 </td>

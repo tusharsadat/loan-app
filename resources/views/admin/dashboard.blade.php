@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     @vite('resources/css/app.css')
+
 </head>
 
 <body>
@@ -31,6 +32,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         const profileButton = document.getElementById('profileButton');
@@ -63,6 +65,24 @@
 
                 reader.readAsDataURL(file);
             }
+        }
+    </script>
+
+    <script>
+        function confirmDelete(userId) {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "This action cannot be undone.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('deleteForm-' + userId).submit();
+                }
+            });
         }
     </script>
 
