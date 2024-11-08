@@ -77,10 +77,17 @@
                     <ul class="text-gray-600">
                         <li><b>Email:</b> {{ $user->email }}</li>
                         <li><b>Phone:</b> {{ $user->phone }}</li>
-                        <li><b>Role:</b> {{ $user->role }}</li>
-                        <li><b>Stutas:</b><button
-                                class="bg-green-500 text-white py-1 px-3 rounded-md hover:bg-green-600 transition duration-200 ml-2">
-                                {{ $user->status }}</button>
+                        <li><b>Role:</b> {{ ucfirst($user->role) }}</li>
+                        <li>
+                            <b>Status:</b>
+                            <button
+                                class="
+                                    text-white py-1 px-3 rounded-md transition duration-200 ml-2
+                                    {{ $user->status === 'active' ? 'bg-green-500 hover:bg-green-600' : '' }}
+                                    {{ $user->status === 'inactive' ? 'bg-red-500 hover:bg-red-600' : '' }}
+                                ">
+                                {{ ucfirst($user->status) }}
+                            </button>
                         </li>
                     </ul>
                 </div>
