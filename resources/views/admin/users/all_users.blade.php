@@ -72,11 +72,16 @@
                                 <td class="py-2 px-4">{{ $user->email }}</td>
                                 <td class="py-2 px-4">{{ $user->role }}</td>
                                 <td class="py-2 px-4">
+                                    <form action="{{ route('admin.updateRole', $user->id) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
 
-                                    <label class="switch">
-                                        <input type="checkbox" {{ $user->role == 'admin' ? 'checked' : '' }}>
-                                        <span class="slider"></span>
-                                    </label>
+                                        <label class="switch">
+                                            <input type="checkbox" name="role" onchange="this.form.submit()"
+                                                {{ $user->role == 'admin' ? 'checked' : '' }}>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </form>
 
                                 </td>
                                 <td class="py-2 px-4">

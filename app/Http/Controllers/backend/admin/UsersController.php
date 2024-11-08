@@ -40,4 +40,20 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         return view('admin.users.user_details', compact('user'));
     }
+
+    public function updateRole(Request $request, $id)
+    {
+        // Find the job by its ID
+        $user = User::findOrFail($id);
+
+        // Check if the checkbox is checked (admin) or unchecked (user)
+        $user->role = $request->has('role') ? 'admin' : 'user';
+
+        // Save the updated role
+        $user->save();
+
+        // Redirect back with a success message
+        toastr()->success('User role update successfully!');
+        return redirect()->back();
+    }
 }
