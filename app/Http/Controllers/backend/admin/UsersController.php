@@ -41,6 +41,7 @@ class UsersController extends Controller
         return view('admin.users.user_details', compact('user'));
     }
 
+    //Update user role
     public function updateRole(Request $request, $id)
     {
         // Find the job by its ID
@@ -54,6 +55,23 @@ class UsersController extends Controller
 
         // Redirect back with a success message
         toastr()->success('User role update successfully!');
+        return redirect()->back();
+    }
+
+    //Update user status
+    public function updateStatus(Request $request, $id)
+    {
+        // Find the job by its ID
+        $user = User::findOrFail($id);
+
+        // Check if the checkbox is checked (active) or unchecked (inactive)
+        $user->status = $request->has('status') ? 'active' : 'inactive';
+
+        // Save the updated status
+        $user->save();
+
+        // Redirect back with a success message
+        toastr()->success('User status update successfully!');
         return redirect()->back();
     }
 }
