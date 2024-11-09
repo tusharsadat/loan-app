@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\LoanType;
 use Illuminate\Http\Request;
 
 class LoanTypeController extends Controller
@@ -10,5 +11,19 @@ class LoanTypeController extends Controller
     public function allLoanType()
     {
         return view('admin.loan_type.all_loanType');
+    }
+
+    //Store loan type data
+    public function addLoanType(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'unique:loan_types'],
+        ]);
+        LoanType::create([
+            'name' => $request->name,
+        ]);
+        // Redirect back with a success message
+        toastr()->success('Create successfully!');
+        return redirect()->back();
     }
 }

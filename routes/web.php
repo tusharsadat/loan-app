@@ -45,6 +45,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::patch('/admin/update-status/{id}', [UsersController::class, 'updateStatus'])->name('admin.updateStatus');
 
     Route::get('admin/all-loan-type', [LoanTypeController::class, 'allLoanType'])->name('admin.allLoanType');
+    Route::post('admin/add/loan-type', [LoanTypeController::class, 'addLoanType'])->name('admin.addLoanType');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
