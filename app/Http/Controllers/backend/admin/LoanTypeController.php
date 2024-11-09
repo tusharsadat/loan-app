@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class LoanTypeController extends Controller
 {
-    //
+    public function allLoanType()
+    {
+        return view('admin.loan_type.all_loanType');
+    }
 }
