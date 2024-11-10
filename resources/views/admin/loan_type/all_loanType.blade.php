@@ -30,26 +30,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="px-4 py-2">1</td>
-                        <td class="px-4 py-2">Personal Loan</td>
-                        <td class="px-4 py-2">
-                            <button
-                                class="bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 focus:ring-opacity-50">Update</button>
-                            <button
-                                class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-2">2</td>
-                        <td class="px-4 py-2">Home Loan</td>
-                        <td class="px-4 py-2">
-                            <button
-                                class="bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 focus:ring-opacity-50">Update</button>
-                            <button
-                                class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50">Delete</button>
-                        </td>
-                    </tr>
+                    @foreach ($loan_types as $key => $loan_type)
+                        <tr>
+                            <td class="px-4 py-2">{{ $key + 1 }}</td>
+                            <td class="px-4 py-2">{{ $loan_type->name }}</td>
+                            <td class="px-4 py-2">
+                                <button
+                                    class="bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 focus:ring-opacity-50">Update</button>
+                                <button
+                                    class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50">Delete</button>
+                            </td>
+                        </tr>
+                    @endforeach
                     <!-- Add more records as needed -->
                 </tbody>
             </table>
