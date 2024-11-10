@@ -10,7 +10,7 @@ class LoanTypeController extends Controller
 {
     public function allLoanType()
     {
-        $loan_types = LoanType::latest()->get();
+        $loan_types = LoanType::paginate(5);
         return view('admin.loan_type.all_loanType', compact('loan_types'));
     }
 
@@ -25,6 +25,19 @@ class LoanTypeController extends Controller
         ]);
         // Redirect back with a success message
         toastr()->success('Create successfully!');
+        return redirect()->back();
+    }
+
+    public function deleteLoanType($id)
+    {
+        // Find the job by its ID
+        $LoanType = LoanType::findOrFail($id);
+
+        // Delete the job from the database
+        $LoanType->delete();
+
+        // Redirect back with a success message
+        toastr()->success('Delete successfully!');
         return redirect()->back();
     }
 }

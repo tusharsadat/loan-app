@@ -68,6 +68,7 @@
         }
     </script>
 
+    {{-- User delete Confirm model show --}}
     <script>
         function confirmDelete(userId) {
             Swal.fire({
@@ -81,6 +82,25 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById('deleteForm-' + userId).submit();
+                }
+            });
+        }
+    </script>
+
+    {{-- Loan type delete Confirm model show --}}
+    <script>
+        function confirmDelete(loanTypeId) {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "This action cannot be undone.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('deleteForm-' + loanTypeId).submit();
                 }
             });
         }

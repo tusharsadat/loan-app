@@ -37,14 +37,22 @@
                             <td class="px-4 py-2">
                                 <button
                                     class="bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 focus:ring-opacity-50">Update</button>
-                                <button
+                                <button type="submit" onclick="confirmDelete({{ $loan_type->id }})"
                                     class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50">Delete</button>
+                                <form id="deleteForm-{{ $loan_type->id }}"
+                                    action="{{ route('delete.LoanType', $loan_type->id) }}" method="POST"
+                                    style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+
+                                </form>
                             </td>
                         </tr>
                     @endforeach
                     <!-- Add more records as needed -->
                 </tbody>
             </table>
+            {{ $loan_types->links() }}
         </div>
     </div>
 @endsection

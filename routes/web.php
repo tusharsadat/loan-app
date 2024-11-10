@@ -46,6 +46,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('admin/all-loan-type', [LoanTypeController::class, 'allLoanType'])->name('admin.allLoanType');
     Route::post('admin/add/loan-type', [LoanTypeController::class, 'addLoanType'])->name('admin.addLoanType');
+    Route::delete('/admin/delete/loan-type/{id}', [LoanTypeController::class, 'deleteLoanType'])->name('delete.LoanType');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
