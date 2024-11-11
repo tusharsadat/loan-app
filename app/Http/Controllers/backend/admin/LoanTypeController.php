@@ -28,12 +28,34 @@ class LoanTypeController extends Controller
         return redirect()->back();
     }
 
-    public function deleteLoanType($id)
+    public function editLoanType($id)
     {
-        // Find the job by its ID
         $LoanType = LoanType::findOrFail($id);
 
-        // Delete the job from the database
+        return view('admin.loan_type.edit_loanType', compact('LoanType'));
+    }
+
+    public function updateLoanType(Request $request, $id)
+    {
+        // Find the loan type by its ID
+        $LoanType = LoanType::findOrFail($id);
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'unique:loan_types'],
+        ]);
+
+        $LoanType->update($request->all());
+
+        toastr()->success('Update successfully!');
+        return redirect()->route('admin.allLoanType');
+    }
+
+    public function deleteLoanType($id)
+    {
+        // Find the loan type by its ID
+        $LoanType = LoanType::findOrFail($id);
+
+        // Delete the loan type from the database
         $LoanType->delete();
 
         // Redirect back with a success message
