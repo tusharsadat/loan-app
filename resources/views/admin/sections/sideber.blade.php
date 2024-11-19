@@ -21,7 +21,7 @@
                 </button>
                 <ul x-show="open" class="ml-4 mt-2 space-y-2">
                     <li><a href="{{ route('admin.allUser') }}" class="text-gray-300 hover:text-white">All User</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-white">Add Product</a></li>
+
                 </ul>
             </div>
         </li>
@@ -58,7 +58,8 @@
                     </svg>
                 </button>
                 <ul x-show="open" class="ml-4 mt-2 space-y-2">
-                    <li><a href="{{ route('admin.allLoanType') }}" class="text-gray-300 hover:text-white">View Lone</a>
+                    <li><a href="{{ route('admin.all.LoanApplication') }}" class="text-gray-300 hover:text-white">View
+                            Lone Application</a>
                     </li>
                 </ul>
             </div>
