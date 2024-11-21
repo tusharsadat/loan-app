@@ -24,7 +24,7 @@ return new class extends Migration
             $table->decimal('installment_amount', 15, 2)->nullable();
             $table->decimal('amount_payable', 15, 2)->nullable();
             $table->string('date_applied');
-            $table->string('status');
+            $table->enum('status', ['approved', 'pending'])->default('pending');
             $table->timestamps();
         });
     }

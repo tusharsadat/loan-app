@@ -73,7 +73,17 @@
                                 <td class="py-2 px-4">{{ $loan_application->amount }}</td>
                                 <td class="py-2 px-4">{{ $loan_application->bank }}</td>
                                 <td class="py-2 px-4">{{ $loan_application->account }}</td>
-                                <td class="py-2 px-4">{{ $loan_application->status }}</td>
+                                <td class="py-2 px-4">
+
+
+                                    <label class="switch">
+                                        <input type="checkbox" name="status"
+                                            {{ $loan_application->status == 'approved' ? 'checked' : '' }}>
+                                        <span class="slider"></span>
+                                    </label>
+
+
+                                </td>
 
                                 {{-- <td class="py-2 px-4">
                                     <form action="{{ route('admin.updateRole', $user->id) }}" method="POST">

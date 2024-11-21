@@ -76,7 +76,7 @@ class LoanController extends Controller
             'installment_amount' => $installmentAmount,
             'amount_payable' => $totalPayable,
             'date_applied' => $formatedDate,
-            'status' => 'Approval Pending',
+
         ]);
         toastr()->success('Loan application submitted successfully.');
         return redirect()->back();
