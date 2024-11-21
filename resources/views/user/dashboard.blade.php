@@ -47,6 +47,44 @@
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loanAmountInput = document.getElementById('loan_amount');
+            const installmentCountInput = document.getElementById('installment_count');
+            const installmentAmountField = document.getElementById('installment_amount');
+            const amountPayableField = document.getElementById('amount_payable');
+
+            function calculateInstallments() {
+                const loanAmount = loanAmountInput.value;
+                const installmentCount = installmentCountInput.value;
+
+                if (loanAmount && installmentCount) {
+                    fetch("{{ route('loan.calculate') }}", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                loan_amount: loanAmount,
+                                installment_count: installmentCount
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            installmentAmountField.value = data.installment_amount;
+                            amountPayableField.value = data.amount_payable;
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            }
+
+            loanAmountInput.addEventListener('input', calculateInstallments);
+            installmentCountInput.addEventListener('input', calculateInstallments);
+        });
+    </script>
+
+
 </body>
 
 </html>

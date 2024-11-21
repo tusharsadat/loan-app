@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->string('amount');
             $table->string('bank');
             $table->string('account');
             $table->string('loan_type');
-            $table->string('installment_amount');
-            $table->string('installment_count');
-            $table->string('amount_payable');
+            $table->decimal('loan_amount', 15, 2); // Adjust precision as needed
+            $table->integer('installment_count');
+            $table->decimal('interest_rate', 5, 2)->default(10.00); // Default to 10%
+            $table->decimal('installment_amount', 15, 2)->nullable();
+            $table->decimal('amount_payable', 15, 2)->nullable();
             $table->string('date_applied');
             $table->string('status');
             $table->timestamps();
