@@ -13,4 +13,9 @@ class LoanType extends Model
     //     'name',
 
     // ];
+
+    public function loan_applications()
+    {
+        return $this->hasMany(LoanApplication::class);
+    }
 }
