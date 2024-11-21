@@ -14,7 +14,7 @@
         <li class="my-3">
             <div x-data="{ open: false }">
                 <button @click="open = !open" class="flex items-center text-gray-300 hover:text-white">
-                    Products
+                    Loan Management
                     <svg x-show="!open" class="ml-auto h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -25,7 +25,8 @@
                     </svg>
                 </button>
                 <ul x-show="open" class="ml-4 mt-2 space-y-2">
-                    <li><a href="#" class="text-gray-300 hover:text-white">All Products</a></li>
+                    <li><a href="{{ route('user.LoanApplication') }}" class="text-gray-300 hover:text-white">Apply for
+                            Loan</a></li>
                     <li><a href="#" class="text-gray-300 hover:text-white">Add Product</a></li>
                 </ul>
             </div>

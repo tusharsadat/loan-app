@@ -56,6 +56,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+
+    Route::get('user/loan/application', [LoanController::class, 'LoanApplication'])->name('user.LoanApplication');
+    Route::post('user/apply/loan-application', [LoanController::class, 'applyLoanApplication'])->name('user.apply.LoanApplication');
 });
 
 require __DIR__ . '/auth.php';

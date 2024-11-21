@@ -13,4 +13,16 @@ class LoanController extends Controller
         $loan_applications = LoanApplication::paginate(5);
         return view('admin.loan_application.all_loan_Application', compact('loan_applications'));
     }
+
+    public function LoanApplication()
+    {
+
+        return view('user.loan_application.application');
+    }
+
+    public function applyLoanApplication()
+    {
+
+        //return view('user.loan_application.application');
+    }
 }
