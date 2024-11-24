@@ -62,6 +62,7 @@
                             <th class="py-2 px-4">Bank</th>
                             <th class="py-2 px-4">AC Number</th>
                             <th class="py-2 px-4">Approve Loan</th>
+                            <th class="py-2 px-4">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,52 +71,30 @@
                                 <td class="py-2 px-4">{{ $key + 1 }}</td>
                                 <td class="py-2 px-4">{{ $loan_application->name }}</td>
                                 <td class="py-2 px-4">{{ $loan_application->email }}</td>
-                                <td class="py-2 px-4">{{ $loan_application->amount }}</td>
+                                <td class="py-2 px-4">{{ $loan_application->loan_amount }}</td>
                                 <td class="py-2 px-4">{{ $loan_application->bank }}</td>
                                 <td class="py-2 px-4">{{ $loan_application->account }}</td>
                                 <td class="py-2 px-4">
-
-
-                                    <label class="switch">
-                                        <input type="checkbox" name="status"
-                                            {{ $loan_application->status == 'approved' ? 'checked' : '' }}>
-                                        <span class="slider"></span>
-                                    </label>
-
-
-                                </td>
-
-                                {{-- <td class="py-2 px-4">
-                                    <form action="{{ route('admin.updateRole', $user->id) }}" method="POST">
+                                    <form action="{{ route('admin.application.updateStatus', $loan_application->id) }}"
+                                        method="POST">
                                         @csrf
                                         @method('PATCH')
 
                                         <label class="switch">
-                                            <input type="checkbox" name="role" onchange="this.form.submit()"
-                                                {{ $user->role == 'admin' ? 'checked' : '' }}>
+                                            <input type="checkbox" name="status" onchange="this.form.submit()"
+                                                {{ $loan_application->status == 'approved' ? 'checked' : '' }}>
                                             <span class="slider"></span>
                                         </label>
                                     </form>
 
                                 </td>
                                 <td class="py-2 px-4">
-                                    <a href="{{ route('user.detail', $user->id) }}"
+                                    <a href="{{ route('admin.application.detail', $loan_application->id) }}"
                                         class="bg-blue-500 text-white py-1.5 px-3 rounded-md hover:bg-blue-600 transition duration-200">View
                                         Details
                                     </a>
 
                                 </td>
-                                <td class="py-2 px-4">
-                                    <button type="submit" onclick="confirmDelete({{ $user->id }})"
-                                        class="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-200 ml-2">Delete</button>
-                                    <form id="deleteForm-{{ $user->id }}" action="{{ route('delete.user', $user->id) }}"
-                                        method="POST" style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-
-                                    </form>
-
-                                </td> --}}
                             </tr>
                         @endforeach
                         <!-- Add more rows as needed -->

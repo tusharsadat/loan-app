@@ -42,7 +42,7 @@
                         <select name="loan_type" id="loan_type" class="bg-gray-200 p-2 mt-1 block w-full border-gray-300">
                             <option selected>-Select loan type-</option>
                             @foreach ($loan_types as $loan_type)
-                                <option value="{{ $loan_type->id }}">{{ $loan_type->name }}</option>
+                                <option value="{{ $loan_type->name }}">{{ $loan_type->name }}</option>
                             @endforeach
 
                         </select>

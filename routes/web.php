@@ -52,14 +52,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/admin/delete/loan-type/{id}', [LoanTypeController::class, 'deleteLoanType'])->name('delete.LoanType');
 
     Route::get('admin/all-loan-application', [LoanController::class, 'allLoanApplication'])->name('admin.all.LoanApplication');
+    Route::get('admin/application-details/{id}', [LoanController::class, 'applicationDetail'])->name('admin.application.detail');
+    Route::patch('/admin/application/update-status/{id}', [LoanController::class, 'applicationUpdateStatus'])->name('admin.application.updateStatus');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
 
     Route::get('user/loan/application', [LoanController::class, 'LoanApplication'])->name('user.LoanApplication');
-    Route::post('/loan/calculate', [LoanController::class, 'calculateInstallments'])->name('loan.calculate');
-    Route::post('/loan/store', [LoanController::class, 'store'])->name('loan.store');
+    Route::post('user/loan/calculate', [LoanController::class, 'calculateInstallments'])->name('loan.calculate');
+    Route::post('user/loan/store', [LoanController::class, 'store'])->name('loan.store');
+
     //Route::post('user/apply/loan-application', [LoanController::class, 'applyLoanApplication'])->name('user.apply.LoanApplication');
 });
 

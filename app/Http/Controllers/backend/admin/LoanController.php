@@ -17,6 +17,30 @@ class LoanController extends Controller
         return view('admin.loan_application.all_loan_Application', compact('loan_applications'));
     }
 
+    public function applicationDetail($id)
+    {
+        // Find the job by its ID
+        $application = LoanApplication::findOrFail($id);
+        return view('admin.loan_application.application_detail', compact('application'));
+    }
+
+    //Update application status
+    public function applicationUpdateStatus(Request $request, $id)
+    {
+        // Find the application by its ID
+        $application = LoanApplication::findOrFail($id);
+
+        // Check if the checkbox is checked (approved) or unchecked (pending)
+        $application->status = $request->has('status') ? 'approved' : 'pending';
+
+        // Save the updated status
+        $application->save();
+
+        // Redirect back with a success message
+        toastr()->success('Application approved successfully!');
+        return redirect()->back();
+    }
+
     public function LoanApplication()
     {
         $loan_types = LoanType::get();
