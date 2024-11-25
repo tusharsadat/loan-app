@@ -41,6 +41,13 @@ class LoanController extends Controller
         return redirect()->back();
     }
 
+    //Show all approved application admin section
+    public function allApprovedApplication()
+    {
+        $approvedLoans = LoanApplication::where('status', 'approved')->paginate(10); // 10 items per page
+        return view('admin.loan_application.approved_loans', compact('approvedLoans'));
+    }
+
     public function LoanApplication()
     {
         $loan_types = LoanType::get();

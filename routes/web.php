@@ -54,6 +54,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/all-loan-application', [LoanController::class, 'allLoanApplication'])->name('admin.all.LoanApplication');
     Route::get('admin/application-details/{id}', [LoanController::class, 'applicationDetail'])->name('admin.application.detail');
     Route::patch('/admin/application/update-status/{id}', [LoanController::class, 'applicationUpdateStatus'])->name('admin.application.updateStatus');
+    Route::get('admin/all-approved-application', [LoanController::class, 'allApprovedApplication'])->name('admin.all.approvedApplication');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

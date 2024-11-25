@@ -61,6 +61,10 @@
                     <li><a href="{{ route('admin.all.LoanApplication') }}" class="text-gray-300 hover:text-white">View
                             Lone Application</a>
                     </li>
+                    <li><a href="{{ route('admin.all.approvedApplication') }}"
+                            class="text-gray-300 hover:text-white">All
+                            Approved Application</a>
+                    </li>
                 </ul>
             </div>
         </li>
